@@ -216,22 +216,19 @@ function RegisterPage() {
 
           </div>
 
-          <button
-            className="
-            w-full
-            bg-white/10
-            hover:bg-white/20
-            border
-            border-white/10
-            p-4
-            rounded-2xl
-            font-semibold
-            transition
-          "
-          >
-            Register
-          </button>
-
+         <button
+           className="
+           w-full
+           bg-blue-600
+           hover:bg-blue-700
+           p-4
+           rounded-2xl
+           font-semibold
+           transition
+         "
+         >
+           Register
+         </button>
           <p
             className="
             text-center
