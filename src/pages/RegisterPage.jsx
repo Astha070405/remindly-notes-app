@@ -1,12 +1,12 @@
 import { useState } from 'react'
 
 import api from '../api/axios'
-import { useState } from 'react'
 
 import {
   FiEye,
   FiEyeOff
 } from 'react-icons/fi'
+
 import { useAuth }
 from '../context/AuthContext'
 
@@ -23,8 +23,12 @@ function RegisterPage() {
 
   const [password, setPassword] =
     useState('')
-const [showPassword, setShowPassword] = useState(false)
-  const { login } = useAuth()
+
+  const [showPassword, setShowPassword] =
+    useState(false)
+
+  const { login } =
+    useAuth()
 
   const navigate =
     useNavigate()
@@ -55,14 +59,14 @@ const [showPassword, setShowPassword] = useState(false)
 
       } catch (error) {
 
-          console.log(
-            error.response.data
-          )
+        console.log(error)
 
-          alert(
-            error.response.data.message
-          )
-        }
+        alert(
+          error.response?.data?.message
+          ||
+          'Registration failed'
+        )
+      }
     }
 
   return (
@@ -81,9 +85,9 @@ const [showPassword, setShowPassword] = useState(false)
         className="
         bg-[#181c24]
         border
-        border-gray-800
+        border-white/10
         p-10
-        rounded-2xl
+        rounded-3xl
         shadow-xl
         w-full
         max-w-md
@@ -118,11 +122,13 @@ const [showPassword, setShowPassword] = useState(false)
 
             className="
             w-full
-            bg-[#232836]
+            bg-white/5
             border
-            border-gray-700
+            border-white/10
             p-4
-            rounded-xl
+            rounded-2xl
+            outline-none
+            focus:border-blue-500
           "
           />
 
@@ -138,19 +144,17 @@ const [showPassword, setShowPassword] = useState(false)
 
             className="
             w-full
-            bg-[#232836]
+            bg-white/5
             border
-            border-gray-700
+            border-white/10
             p-4
-            rounded-xl
+            rounded-2xl
+            outline-none
+            focus:border-blue-500
           "
           />
 
-          <div
-            className="
-            relative
-          "
-          >
+          <div className="relative">
 
             <input
 
@@ -215,38 +219,46 @@ const [showPassword, setShowPassword] = useState(false)
           <button
             className="
             w-full
-            bg-green-600
-            hover:bg-green-700
+            bg-white/10
+            hover:bg-white/20
+            border
+            border-white/10
             p-4
-            rounded-xl
+            rounded-2xl
             font-semibold
             transition
           "
           >
             Register
           </button>
-<p
-  className="
-  text-center
-  text-gray-400
-  mt-6
-"
->
-  Already have an account?
 
-  <span
-    onClick={() => navigate('/login')}
-    className="
-    text-blue-400
-    hover:text-blue-300
-    cursor-pointer
-    ml-2
-    font-medium
-  "
-  >
-    Login
-  </span>
-</p>
+          <p
+            className="
+            text-center
+            text-gray-400
+            mt-6
+          "
+          >
+            Already have an account?
+
+            <span
+              onClick={() =>
+                navigate('/login')
+              }
+
+              className="
+              text-blue-400
+              hover:text-blue-300
+              cursor-pointer
+              ml-2
+              font-medium
+            "
+            >
+              Login
+            </span>
+
+          </p>
+
         </form>
 
       </div>

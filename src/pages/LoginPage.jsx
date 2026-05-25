@@ -1,12 +1,12 @@
 import { useState } from 'react'
 
 import api from '../api/axios'
-import { useState } from 'react'
 
 import {
   FiEye,
   FiEyeOff
 } from 'react-icons/fi'
+
 import { useAuth }
 from '../context/AuthContext'
 
@@ -17,7 +17,7 @@ function LoginPage() {
 
   const { login } =
     useAuth()
-  const [showPassword, setShowPassword] = useState(false)
+
   const navigate =
     useNavigate()
 
@@ -26,6 +26,9 @@ function LoginPage() {
 
   const [password, setPassword] =
     useState('')
+
+  const [showPassword, setShowPassword] =
+    useState(false)
 
   const handleLogin =
     async (e) => {
@@ -52,17 +55,14 @@ function LoginPage() {
 
       } catch (error) {
 
-          console.log(error)
+        console.log(error)
 
-          alert(
-
-            error.response?.data?.message
-
-            ||
-
-            'Login failed'
-          )
-        }
+        alert(
+          error.response?.data?.message
+          ||
+          'Login failed'
+        )
+      }
     }
 
   return (
@@ -81,9 +81,9 @@ function LoginPage() {
         className="
         bg-[#181c24]
         border
-        border-gray-800
+        border-white/10
         p-10
-        rounded-2xl
+        rounded-3xl
         shadow-xl
         w-full
         max-w-md
@@ -118,19 +118,17 @@ function LoginPage() {
 
             className="
             w-full
-            bg-[#232836]
+            bg-white/5
             border
-            border-gray-700
+            border-white/10
             p-4
-            rounded-xl
+            rounded-2xl
+            outline-none
+            focus:border-blue-500
           "
           />
 
-          <div
-            className="
-            relative
-          "
-          >
+          <div className="relative">
 
             <input
 
@@ -195,40 +193,45 @@ function LoginPage() {
           <button
             className="
             w-full
-            bg-blue-600
-            hover:bg-blue-700
+            bg-white/10
+            hover:bg-white/20
+            border
+            border-white/10
             p-4
-            rounded-xl
+            rounded-2xl
             font-semibold
             transition
           "
           >
             Login
           </button>
-<p
-  className="
-  text-center
-  text-gray-400
-  mt-6
-"
->
-  Don&apos;t have an account?
 
-  <span
-    onClick={() =>
-      navigate('/register')
-    }
+          <p
+            className="
+            text-center
+            text-gray-400
+            mt-6
+          "
+          >
+            Don&apos;t have an account?
 
-    className="
-    text-blue-400
-    ml-2
-    cursor-pointer
-    hover:text-blue-300
-  "
-  >
-    Register
-  </span>
-</p>
+            <span
+              onClick={() =>
+                navigate('/register')
+              }
+
+              className="
+              text-blue-400
+              ml-2
+              cursor-pointer
+              hover:text-blue-300
+            "
+            >
+              Register
+            </span>
+
+          </p>
+
         </form>
 
       </div>
