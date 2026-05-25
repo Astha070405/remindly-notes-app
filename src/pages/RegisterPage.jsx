@@ -50,10 +50,17 @@ function RegisterPage() {
 
       } catch (error) {
 
-        console.log(error)
+          console.log(error)
 
-        alert('Registration failed')
-      }
+          alert(
+
+            error.response?.data
+
+            ||
+
+            'Registration failed'
+          )
+        }
     }
 
   return (
