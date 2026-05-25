@@ -205,15 +205,15 @@ function CreateTaskModal({
             >
 
               <option value="LOW">
-                Low Priority
+                Low
               </option>
 
               <option value="MEDIUM">
-                Medium Priority
+                Medium
               </option>
 
               <option value="HIGH">
-                High Priority
+                High
               </option>
 
             </select>
