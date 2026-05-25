@@ -40,7 +40,7 @@ function RegisterPage() {
       if (password.length < 6) {
 
         alert(
-          'Password should be atleast 6 characters long'
+          'Password should be at least 6 characters long'
         )
 
         return
@@ -48,20 +48,18 @@ function RegisterPage() {
 
       try {
 
-        const response =
-          await api.post(
-            '/auth/register',
-            {
-              name,
-              email,
-              password
-            }
-          )
+        await api.post(
+          '/auth/register',
+          {
+            name,
+            email,
+            password
+          }
+        )
 
-
-        login(token)
-
-        alert('Registration successful! Please login.')
+        alert(
+          'Registration successful! Please login.'
+        )
 
         navigate('/login')
 
@@ -70,8 +68,11 @@ function RegisterPage() {
         console.log(error)
 
         alert(
+
           error.response?.data?.message
+
           ||
+
           'Registration failed'
         )
       }
