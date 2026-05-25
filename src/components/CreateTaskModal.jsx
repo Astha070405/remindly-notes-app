@@ -1,5 +1,4 @@
 import { useState } from 'react'
-
 import api from '../api/axios'
 
 function CreateTaskModal({
@@ -82,6 +81,7 @@ function CreateTaskModal({
         p-8
         w-full
         max-w-lg
+        shadow-2xl
       "
       >
 
@@ -98,6 +98,7 @@ function CreateTaskModal({
             className="
             text-3xl
             font-bold
+            text-white
           "
           >
             Create Task
@@ -109,7 +110,8 @@ function CreateTaskModal({
             className="
             text-gray-400
             hover:text-white
-            text-2xl
+            text-3xl
+            transition
           "
           >
             ×
@@ -139,8 +141,11 @@ function CreateTaskModal({
             bg-[#232836]
             border
             border-gray-700
-            rounded-xl
+            rounded-2xl
             p-4
+            text-white
+            outline-none
+            focus:border-blue-500
           "
           />
 
@@ -160,9 +165,12 @@ function CreateTaskModal({
             bg-[#232836]
             border
             border-gray-700
-            rounded-xl
+            rounded-2xl
             p-4
             h-32
+            text-white
+            outline-none
+            focus:border-blue-500
           "
           />
 
@@ -184,62 +192,107 @@ function CreateTaskModal({
               Priority
             </label>
 
-            <select
+            <div className="relative">
 
-              value={priority}
+              <select
+
+                value={priority}
+
+                onChange={(e) =>
+                  setPriority(e.target.value)
+                }
+
+                className="
+                appearance-none
+                w-full
+                bg-[#232836]
+                border
+                border-gray-700
+                p-4
+                rounded-2xl
+                text-white
+                outline-none
+                focus:border-blue-500
+                cursor-pointer
+              "
+              >
+
+                <option value="LOW">
+                  Low Priority
+                </option>
+
+                <option value="MEDIUM">
+                  Medium Priority
+                </option>
+
+                <option value="HIGH">
+                  High Priority
+                </option>
+
+              </select>
+
+              <div
+                className="
+                absolute
+                right-5
+                top-1/2
+                -translate-y-1/2
+                text-gray-400
+                pointer-events-none
+                text-sm
+              "
+              >
+                ▼
+              </div>
+
+            </div>
+
+          </div>
+
+          <div
+            className="
+            flex
+            flex-col
+            gap-2
+          "
+          >
+
+            <label
+              className="
+              text-sm
+              text-gray-400
+              font-medium
+            "
+            >
+              Due Date & Time
+            </label>
+
+            <input
+              type="datetime-local"
+
+              value={dueDate}
 
               onChange={(e) =>
-                setPriority(e.target.value)
+                setDueDate(
+                  e.target.value
+                )
               }
 
               className="
               w-full
               bg-[#232836]
               border
-              border-white/10
-              p-4
+              border-gray-700
               rounded-2xl
+              p-4
+              text-white
               outline-none
               focus:border-blue-500
+              cursor-pointer
             "
-            >
-
-              <option value="LOW">
-                Low
-              </option>
-
-              <option value="MEDIUM">
-                Medium
-              </option>
-
-              <option value="HIGH">
-                High
-              </option>
-
-            </select>
+            />
 
           </div>
-
-          <input
-            type="datetime-local"
-
-            value={dueDate}
-
-            onChange={(e) =>
-              setDueDate(
-                e.target.value
-              )
-            }
-
-            className="
-            w-full
-            bg-[#232836]
-            border
-            border-gray-700
-            rounded-xl
-            p-4
-          "
-          />
 
           <label
             className="
@@ -247,6 +300,7 @@ function CreateTaskModal({
             items-center
             gap-3
             text-gray-300
+            cursor-pointer
           "
           >
 
@@ -262,6 +316,13 @@ function CreateTaskModal({
                   e.target.checked
                 )
               }
+
+              className="
+              w-5
+              h-5
+              accent-blue-600
+              cursor-pointer
+            "
             />
 
             Enable Reminder
@@ -273,10 +334,11 @@ function CreateTaskModal({
             w-full
             bg-blue-600
             hover:bg-blue-700
-            rounded-xl
+            rounded-2xl
             p-4
             font-semibold
             transition
+            text-white
           "
           >
             Create Task
