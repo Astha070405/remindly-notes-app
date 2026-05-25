@@ -49,7 +49,10 @@ function LoginPage() {
 
         console.log(error)
 
-        alert('Login failed')
+        alert(
+          error.response?.data?.message
+          || 'Login failed'
+        )
       }
     }
 
@@ -149,7 +152,30 @@ function LoginPage() {
           >
             Login
           </button>
+<p
+  className="
+  text-center
+  text-gray-400
+  mt-6
+"
+>
+  Don&apos;t have an account?
 
+  <span
+    onClick={() =>
+      navigate('/register')
+    }
+
+    className="
+    text-blue-400
+    ml-2
+    cursor-pointer
+    hover:text-blue-300
+  "
+  >
+    Register
+  </span>
+</p>
         </form>
 
       </div>
