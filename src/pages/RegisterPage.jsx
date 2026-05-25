@@ -27,8 +27,7 @@ function RegisterPage() {
   const [showPassword, setShowPassword] =
     useState(false)
 
-  const { login } =
-    useAuth()
+
 
   const navigate =
     useNavigate()
@@ -59,12 +58,12 @@ function RegisterPage() {
             }
           )
 
-        const token =
-          response.data.token
 
         login(token)
 
-        navigate('/dashboard')
+        alert('Registration successful! Please login.')
+
+        navigate('/login')
 
       } catch (error) {
 
