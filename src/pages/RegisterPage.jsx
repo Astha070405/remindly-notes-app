@@ -1,7 +1,12 @@
 import { useState } from 'react'
 
 import api from '../api/axios'
+import { useState } from 'react'
 
+import {
+  FiEye,
+  FiEyeOff
+} from 'react-icons/fi'
 import { useAuth }
 from '../context/AuthContext'
 
@@ -18,7 +23,7 @@ function RegisterPage() {
 
   const [password, setPassword] =
     useState('')
-
+const [showPassword, setShowPassword] = useState(false)
   const { login } = useAuth()
 
   const navigate =
@@ -141,27 +146,71 @@ function RegisterPage() {
           "
           />
 
-          <input
-            type="password"
-            placeholder="Password"
-
-            value={password}
-
-            onChange={(e) =>
-              setPassword(
-                e.target.value
-              )
-            }
-
+          <div
             className="
-            w-full
-            bg-[#232836]
-            border
-            border-gray-700
-            p-4
-            rounded-xl
+            relative
           "
-          />
+          >
+
+            <input
+
+              type={
+                showPassword
+                  ? 'text'
+                  : 'password'
+              }
+
+              placeholder="Password"
+
+              value={password}
+
+              onChange={(e) =>
+                setPassword(e.target.value)
+              }
+
+              className="
+              w-full
+              bg-white/5
+              border
+              border-white/10
+              rounded-2xl
+              px-5
+              py-4
+              pr-14
+              text-white
+              outline-none
+              focus:border-blue-500
+            "
+            />
+
+            <button
+
+              type="button"
+
+              onClick={() =>
+                setShowPassword(!showPassword)
+              }
+
+              className="
+              absolute
+              right-5
+              top-1/2
+              -translate-y-1/2
+              text-gray-400
+              hover:text-white
+              transition
+            "
+            >
+
+              {
+                showPassword
+                  ? <FiEyeOff size={20} />
+                  : <FiEye size={20} />
+              }
+
+            </button>
+
+          </div>
 
           <button
             className="
