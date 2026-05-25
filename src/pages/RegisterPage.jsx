@@ -38,6 +38,15 @@ function RegisterPage() {
 
       e.preventDefault()
 
+      if (password.length < 6) {
+
+        alert(
+          'Password should be atleast 6 characters long'
+        )
+
+        return
+      }
+
       try {
 
         const response =
@@ -68,7 +77,6 @@ function RegisterPage() {
         )
       }
     }
-
   return (
 
     <div
