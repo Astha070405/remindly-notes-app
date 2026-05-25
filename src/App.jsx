@@ -1,16 +1,41 @@
-import { Routes, Route } from 'react-router-dom'
+import {
+  Routes,
+  Route,
+  Navigate
+} from 'react-router-dom'
+
 import ProtectedRoute
 from './components/ProtectedRoute'
-import LoginPage from './pages/LoginPage'
-import RegisterPage from './pages/RegisterPage'
-import DashboardPage from './pages/DashboardPage'
-import AppLayout from './layouts/AppLayout'
-import TasksPage from './pages/TasksPage'
+
+import LoginPage
+from './pages/LoginPage'
+
+import RegisterPage
+from './pages/RegisterPage'
+
+import DashboardPage
+from './pages/DashboardPage'
+
+import TasksPage
+from './pages/TasksPage'
+
+import AppLayout
+from './layouts/AppLayout'
+
 function App() {
 
   return (
 
     <Routes>
+
+      <Route
+        path="/"
+        element={
+          <Navigate
+            to="/login"
+          />
+        }
+      />
 
       <Route
         path="/login"
@@ -29,7 +54,6 @@ function App() {
 
             <AppLayout />
 
-
           </ProtectedRoute>
         }
       >
@@ -38,10 +62,12 @@ function App() {
           path="/dashboard"
           element={<DashboardPage />}
         />
-<Route
-  path="/tasks"
-  element={<TasksPage />}
-/>
+
+        <Route
+          path="/tasks"
+          element={<TasksPage />}
+        />
+
       </Route>
 
     </Routes>
