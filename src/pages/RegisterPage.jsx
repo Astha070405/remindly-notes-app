@@ -176,7 +176,28 @@ function RegisterPage() {
           >
             Register
           </button>
+<p
+  className="
+  text-center
+  text-gray-400
+  mt-6
+"
+>
+  Already have an account?
 
+  <span
+    onClick={() => navigate('/login')}
+    className="
+    text-blue-400
+    hover:text-blue-300
+    cursor-pointer
+    ml-2
+    font-medium
+  "
+  >
+    Login
+  </span>
+</p>
         </form>
 
       </div>
