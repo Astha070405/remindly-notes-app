@@ -47,13 +47,17 @@ function LoginPage() {
 
       } catch (error) {
 
-        console.log(error)
+          console.log(error)
 
-        alert(
-          error.response?.data?.message
-          || 'Login failed'
-        )
-      }
+          alert(
+
+            error.response?.data?.message
+
+            ||
+
+            'Login failed'
+          )
+        }
     }
 
   return (
