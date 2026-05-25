@@ -69,9 +69,10 @@ function CreateTaskModal({
       items-center
       justify-center
       z-50
+      p-4
+      overflow-y-auto
     "
     >
-
       <div
         className="
         bg-[#181c24]
