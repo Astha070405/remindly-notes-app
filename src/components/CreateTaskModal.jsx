@@ -166,39 +166,59 @@ function CreateTaskModal({
           "
           />
 
-          <select
-
-            value={priority}
-
-            onChange={(e) =>
-              setPriority(
-                e.target.value
-              )
-            }
-
+          <div
             className="
-            w-full
-            bg-[#232836]
-            border
-            border-gray-700
-            rounded-xl
-            p-4
+            flex
+            flex-col
+            gap-2
           "
           >
 
-            <option>
-              LOW
-            </option>
+            <label
+              className="
+              text-sm
+              text-gray-400
+              font-medium
+            "
+            >
+              Priority
+            </label>
 
-            <option>
-              MEDIUM
-            </option>
+            <select
 
-            <option>
-              HIGH
-            </option>
+              value={priority}
 
-          </select>
+              onChange={(e) =>
+                setPriority(e.target.value)
+              }
+
+              className="
+              w-full
+              bg-[#232836]
+              border
+              border-white/10
+              p-4
+              rounded-2xl
+              outline-none
+              focus:border-blue-500
+            "
+            >
+
+              <option value="LOW">
+                Low Priority
+              </option>
+
+              <option value="MEDIUM">
+                Medium Priority
+              </option>
+
+              <option value="HIGH">
+                High Priority
+              </option>
+
+            </select>
+
+          </div>
 
           <input
             type="datetime-local"
