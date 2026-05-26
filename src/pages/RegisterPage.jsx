@@ -7,8 +7,6 @@ import {
   FiEyeOff
 } from 'react-icons/fi'
 
-
-
 import { useNavigate }
 from 'react-router-dom'
 
@@ -26,9 +24,8 @@ function RegisterPage() {
   const [showPassword, setShowPassword] =
     useState(false)
 
-const [loading, setLoading] =
-  useState(false)
-
+  const [loading, setLoading] =
+    useState(false)
 
   const navigate =
     useNavigate()
@@ -81,6 +78,7 @@ const [loading, setLoading] =
         setLoading(false)
       }
     }
+
   return (
 
     <div
@@ -199,81 +197,24 @@ const [loading, setLoading] =
             "
             />
 
-           <button
+            <button
 
-             disabled={loading}
+              type="button"
 
-             className="
-             w-full
-             bg-blue-600
-             hover:bg-blue-700
-             disabled:bg-blue-400
-             disabled:cursor-not-allowed
-             p-4
-             rounded-2xl
-             font-semibold
-             transition
-             flex
-             items-center
-             justify-center
-           "
-           >
-
-             {
-               loading
-                 ? (
-                   <div className="flex items-center gap-2">
-
-                     <div
-                       className="
-                       w-5
-                       h-5
-                       border-2
-                       border-white
-                       border-t-transparent
-                       rounded-full
-                       animate-spin
-                     "
-                     />
-
-                     <span>
-                       Registering...
-                     </span>
-
-                   </div>
-                 )
-                 : 'Register'
-             }
-
-           </button>
-
-              {
-                loading
-                  ? (
-                    <div className="flex items-center gap-2">
-
-                      <div
-                        className="
-                        w-5
-                        h-5
-                        border-2
-                        border-white
-                        border-t-transparent
-                        rounded-full
-                        animate-spin
-                      "
-                      />
-
-                      <span>
-                        Registering...
-                      </span>
-
-                    </div>
-                  )
-                  : 'Register'
+              onClick={() =>
+                setShowPassword(!showPassword)
               }
 
-            </button>
+              className="
+              absolute
+              right-5
+              top-1/2
+              -translate-y-1/2
+              text-gray-400
+              hover:text-white
+              transition
+            "
+            >
 
               {
                 showPassword
@@ -285,19 +226,54 @@ const [loading, setLoading] =
 
           </div>
 
-         <button
-           className="
-           w-full
-           bg-blue-600
-           hover:bg-blue-700
-           p-4
-           rounded-2xl
-           font-semibold
-           transition
-         "
-         >
-           Register
-         </button>
+          <button
+
+            disabled={loading}
+
+            className="
+            w-full
+            bg-blue-600
+            hover:bg-blue-700
+            disabled:bg-blue-400
+            disabled:cursor-not-allowed
+            p-4
+            rounded-2xl
+            font-semibold
+            transition
+            flex
+            items-center
+            justify-center
+          "
+          >
+
+            {
+              loading
+                ? (
+                  <div className="flex items-center gap-2">
+
+                    <div
+                      className="
+                      w-5
+                      h-5
+                      border-2
+                      border-white
+                      border-t-transparent
+                      rounded-full
+                      animate-spin
+                    "
+                    />
+
+                    <span>
+                      Registering...
+                    </span>
+
+                  </div>
+                )
+                : 'Register'
+            }
+
+          </button>
+
           <p
             className="
             text-center
