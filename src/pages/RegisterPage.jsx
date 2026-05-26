@@ -199,25 +199,53 @@ const [loading, setLoading] =
             "
             />
 
-            <button
+           <button
 
-              disabled={loading}
+             disabled={loading}
 
-              className="
-              w-full
-              bg-blue-600
-              hover:bg-blue-700
-              disabled:bg-blue-400
-              disabled:cursor-not-allowed
-              p-4
-              rounded-2xl
-              font-semibold
-              transition
-              flex
-              items-center
-              justify-center
-            "
-            >
+             className="
+             w-full
+             bg-blue-600
+             hover:bg-blue-700
+             disabled:bg-blue-400
+             disabled:cursor-not-allowed
+             p-4
+             rounded-2xl
+             font-semibold
+             transition
+             flex
+             items-center
+             justify-center
+           "
+           >
+
+             {
+               loading
+                 ? (
+                   <div className="flex items-center gap-2">
+
+                     <div
+                       className="
+                       w-5
+                       h-5
+                       border-2
+                       border-white
+                       border-t-transparent
+                       rounded-full
+                       animate-spin
+                     "
+                     />
+
+                     <span>
+                       Registering...
+                     </span>
+
+                   </div>
+                 )
+                 : 'Register'
+             }
+
+           </button>
 
               {
                 loading
