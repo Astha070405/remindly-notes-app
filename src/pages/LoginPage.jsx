@@ -30,10 +30,15 @@ function LoginPage() {
   const [showPassword, setShowPassword] =
     useState(false)
 
+    const [loading, setLoading] =
+      useState(false)
+
   const handleLogin =
     async (e) => {
 
       e.preventDefault()
+
+      setLoading(true)
 
       try {
 
@@ -62,9 +67,12 @@ function LoginPage() {
           ||
           'Login failed'
         )
+
+      } finally {
+
+        setLoading(false)
       }
     }
-
   return (
 
     <div
@@ -191,17 +199,51 @@ function LoginPage() {
           </div>
 
          <button
+
+           disabled={loading}
+
            className="
            w-full
            bg-blue-600
            hover:bg-blue-700
+           disabled:bg-blue-400
+           disabled:cursor-not-allowed
            p-4
            rounded-2xl
            font-semibold
            transition
+           flex
+           items-center
+           justify-center
          "
          >
-           Login
+
+           {
+             loading
+               ? (
+                 <div className="flex items-center gap-2">
+
+                   <div
+                     className="
+                     w-5
+                     h-5
+                     border-2
+                     border-white
+                     border-t-transparent
+                     rounded-full
+                     animate-spin
+                   "
+                   />
+
+                   <span>
+                     Logging in...
+                   </span>
+
+                 </div>
+               )
+               : 'Login'
+           }
+
          </button>
 
           <p

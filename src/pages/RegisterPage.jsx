@@ -26,6 +26,8 @@ function RegisterPage() {
   const [showPassword, setShowPassword] =
     useState(false)
 
+const [loading, setLoading] =
+  useState(false)
 
 
   const navigate =
@@ -44,6 +46,8 @@ function RegisterPage() {
 
         return
       }
+
+      setLoading(true)
 
       try {
 
@@ -67,13 +71,14 @@ function RegisterPage() {
         console.log(error)
 
         alert(
-
           error.response?.data?.message
-
           ||
-
           'Registration failed'
         )
+
+      } finally {
+
+        setLoading(false)
       }
     }
   return (
@@ -196,22 +201,51 @@ function RegisterPage() {
 
             <button
 
-              type="button"
-
-              onClick={() =>
-                setShowPassword(!showPassword)
-              }
+              disabled={loading}
 
               className="
-              absolute
-              right-5
-              top-1/2
-              -translate-y-1/2
-              text-gray-400
-              hover:text-white
+              w-full
+              bg-blue-600
+              hover:bg-blue-700
+              disabled:bg-blue-400
+              disabled:cursor-not-allowed
+              p-4
+              rounded-2xl
+              font-semibold
               transition
+              flex
+              items-center
+              justify-center
             "
             >
+
+              {
+                loading
+                  ? (
+                    <div className="flex items-center gap-2">
+
+                      <div
+                        className="
+                        w-5
+                        h-5
+                        border-2
+                        border-white
+                        border-t-transparent
+                        rounded-full
+                        animate-spin
+                      "
+                      />
+
+                      <span>
+                        Registering...
+                      </span>
+
+                    </div>
+                  )
+                  : 'Register'
+              }
+
+            </button>
 
               {
                 showPassword
